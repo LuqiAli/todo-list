@@ -27,10 +27,14 @@ function reducer(state, action) {
 
 export default function App() {
 
+  const allTodos = [...JSON.parse(localStorage.getItem("todos"))] 
+  
   const [{todos, todoCount}, dispatch] = React.useReducer(reducer, { 
-    todos: [...JSON.parse(localStorage.getItem("todos"))],
-    todoCount: [JSON.parse(localStorage.getItem("todoCount"))]
+    todos: allTodos ? allTodos : [],
+    todoCount: allTodos ? allTodos.length : 0
   })
+
+  // const [todoCount, setTodoCount] = React.useState()
   const [text, setText] = React.useState("")
   
   const todoItems = todos.map((t, idx) => 
@@ -50,8 +54,8 @@ export default function App() {
   
   React.useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos))
-    localStorage.setItem("todoCount", JSON.stringify(todoCount))
-  }, [todos, todoCount])
+    localStorage.setItem("todoCount", todos.length)
+  }, [todos])
   
   return (
     <div>
