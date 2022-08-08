@@ -1,10 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
+
+:root {
+  --background-100: #f6f6fb;
+  --background-200: #ededf6;
+  --background-300: #e3e3f2;
+  --background-400: #dadaed;
+  --background-500: #d1d1e9;
+  --background-600: #a7a7ba;
+  --background-700: #7d7d8c;
+  --background-800: #54545d;
+  --background-900: #2a2a2f;
+
+  --orange-100: #ffe7cd;
+  --orange-200: #ffd09b;
+  --orange-300: #ffb86a;
+  --orange-400: #ffa138;
+  --orange-500: #ff8906;
+  --orange-600: #cc6e05;
+  --orange-700: #995204;
+  --orange-800: #663702;
+  --orange-900: #331b01;
+
+  --pink-100: #fad6e2;
+  --pink-200: #f5adc6;
+  --pink-300: #ef83a9;
+  --pink-400: #ea5a8d;
+  --pink-500: #e53170;
+  --pink-600: #b7275a;
+  --pink-700: #891d43;
+  --pink-800: #5c142d;
+  --pink-900: #2e0a16;
+  
+  --primary-100: #e2e0ff;
+  --primary-200: #c1beff;
+  --primary-300: #a29dff;
+  --primary-400: #837dff;
+  --primary-500: #645cff;
+  --primary-600: #504acc;
+  --primary-700: #3c3799;
+  --primary-800: #282566;
+  --primary-900: #141233;
+
+  --grey-50: #f8fafc;
+  --grey-100: #f1f5f9;
+  --grey-200: #e2e8f0;
+  --grey-300: #cbd5e1;
+  --grey-400: #94a3b8;
+  --grey-500: #64748b;
+  --grey-600: #475569;
+  --grey-700: #334155;
+  --grey-800: #1e293b;
+  --grey-900: #0f172a;
+  
+  --dark: #0f0e17;
+  --para: var(--grey-700);
+}
+
+::placeholder {
+  color: var(--para);
+}
+
 *::after, *::before, * {
   font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   box-sizing: border-box;
   user-select: none;
+  color: var(--para);
 }
 
 body {
@@ -14,7 +76,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(255, 192, 173, 0.7);
+  background-color: var(--grey-50);
 }
 
 code {
@@ -29,7 +91,7 @@ input {
   border-radius: 10px;
   font-size: 2.5vh;
   text-indent: 10px;
-  background-color: rgba(255, 192, 173, 1);
+  background-color: var(--grey-200);
 }
 
 .full {
@@ -45,13 +107,13 @@ input {
   margin: 10px 0;
   width: 100%;
   height: 5vh;
-  background-color: rgba(255, 192, 173, 1);
+  background-color: var(--grey-200);
   display: flex;
   align-items: center;
 }
 
 .item-checkbox {
-  background-color: rgba(255, 255, 254, 0.4);
+  background-color: var(--grey-100);
   border: 2px solid #271c19;
   border-radius: 10px;
   height: 3vh;
@@ -76,7 +138,7 @@ input {
   padding: 0 4.5vw;
   width: 100%;
   height: 13vh;
-  background-color: rgba(85, 66, 61, 0.7);
+  background-color: var(--grey-100);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,19 +147,18 @@ input {
 .navbar > p {
   margin: 0;
   padding: 0;
-  font-size: 8vh;
-  color: #271c19;
   font-weight:bolder;
 }
 
 .check {
   position: relative;
+  font-size: 8vmin;
   bottom: 5px;
 }
 
 .item:hover .x {
-  border: 2px solid rgba(150, 86, 161, 0.9);
-  color: rgba(150, 86, 161, 0.9);
+  border: 2px solid var(--primary-500);
+  color: var(--primary-500);
 }
 
 .x {
@@ -113,5 +174,46 @@ input {
   text-align: center;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.navbar-title {
+  font-size: 4.5vmin;
+}
+
+.navbar-header {
+  font-size: 7vmin;
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  font-size: 2.5vh;
+  box-shadow: 0 10px 25px (0, 0, 0, 1);
+  background-color: var(--grey-200);
+  
+}
+
+.dropDown {
+  height: 5vh;
+  width: 17vw;
+  margin-bottom: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.custom-arrow {
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--primary-500);
+  display: block;
+  height: 100%;
+  width: 5vmin;
+  pointer-events: none;
   cursor: pointer;
 }

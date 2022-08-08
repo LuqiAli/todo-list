@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "./Item.jsx";
 import Navbar from "./Navbar.jsx";
+import Dropdown from "./Dropdown.jsx";
 import {nanoid} from "nanoid";
 
 function reducer(state, action) {
@@ -51,7 +52,7 @@ export default function App() {
                   textDecoration: t.completed ? "line-through" : ""
                 }}
                 styleBox={{
-                  backgroundColor:  t.completed ? "#e78fb3" : ""
+                  backgroundColor:  t.completed ? "#645cff" : ""
                 }}
               />)
   
@@ -63,7 +64,11 @@ export default function App() {
   return (
     <div>
       <Navbar />
+      
       <div className="full">
+        
+        <Dropdown />
+        
         <form onSubmit={e=> {
           e.preventDefault()
           dispatch({type: "add-todo", text})
