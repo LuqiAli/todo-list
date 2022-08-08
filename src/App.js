@@ -27,11 +27,14 @@ function reducer(state, action) {
 
 export default function App() {
 
-  const allTodos = [...JSON.parse(localStorage.getItem("todos"))] 
+  if (!localStorage.getItem("todos")) {
+    localStorage.setItem("todos", "[]")
+    localStorage.setItem("todoCount", "0")
+  }
   
   const [{todos, todoCount}, dispatch] = React.useReducer(reducer, { 
-    todos: allTodos ? allTodos : [],
-    todoCount: allTodos ? allTodos.length : 0
+    todos: JSON.parse(localStorage.getItem("todos")),
+    todoCount: JSON.parse(localStorage.getItem("todoCount"))
   })
 
   // const [todoCount, setTodoCount] = React.useState()

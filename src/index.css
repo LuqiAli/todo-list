@@ -66,21 +66,6 @@ input {
   width: 100%;
 }
 
-.x {
-  display: flex;
-  margin: 0 10px;
-  font-family: 'Concert One', cursive;
-  color: rgba(39, 28, 25, 0.6);
-  transition: all 0.25s linear;
-  border: 2px solid rgba(39, 28, 25, 0.6);
-  border-radius: 10px;
-  height: 3vmin;
-  width: 3vmin;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
 
 .count {
   margin: 10px 0;
@@ -108,4 +93,25 @@ input {
 .check {
   position: relative;
   bottom: 5px;
+}
+
+.item:hover .x {
+  border: 2px solid rgba(150, 86, 161, 0.9);
+  color: rgba(150, 86, 161, 0.9);
+}
+
+.x {
+  display: flex;
+  margin: 0 10px;
+  font-family: 'Concert One', cursive;
+  color: transparent;
+  transition: all 0.25s linear;
+  border: 2px solid rgba(150, 86, 161, 0);
+  border-radius: 10px;
+  height: 3vmin;
+  width: 3vmin;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
