@@ -1,13 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+*::after, *::before, * {
+  font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  user-select: none;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(255, 192, 173, 0.7);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input {
+  width: 100%;
+  height: 5vh;
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  font-size: 2.5vh;
+  text-indent: 10px;
+  background-color: rgba(255, 192, 173, 1);
+}
+
+.full {
+  font-size: 2.5vh;
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 5vmin;
+}
+
+.item {
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  margin: 10px 0;
+  width: 100%;
+  height: 5vh;
+  background-color: rgba(255, 192, 173, 1);
+  display: flex;
+  align-items: center;
+}
+
+.item-checkbox {
+  background-color: rgba(255, 255, 254, 0.4);
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  height: 3vh;
+  width: 3.5vh;
+  margin: 0 10px;
+  cursor: pointer;
+  
+}
+
+.item-title {
+  user-select: none;
+  width: 100%;
+}
+
+.x {
+  display: flex;
+  margin: 0 10px;
+  font-family: 'Concert One', cursive;
+  color: rgba(39, 28, 25, 0.6);
+  transition: all 0.25s linear;
+  border: 2px solid rgba(39, 28, 25, 0.6);
+  border-radius: 10px;
+  height: 3vmin;
+  width: 3vmin;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.count {
+  margin: 10px 0;
+}
+
+.navbar { 
+  margin: 0;
+  padding: 0 4.5vw;
+  width: 100%;
+  height: 13vh;
+  background-color: rgba(85, 66, 61, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar > p {
+  margin: 0;
+  padding: 0;
+  font-size: 8vh;
+  color: #271c19;
+  font-weight:bolder;
+}
+
+.check {
+  position: relative;
+  bottom: 5px;
 }
