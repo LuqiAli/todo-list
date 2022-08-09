@@ -13,10 +13,10 @@ export default function Item(props) {
     // style={styles}
 
     return (
-        <div className="item">
+        <div className="item" style={props.styleArchive}>
             <div className="item-checkbox" onClick={props.click} style={props.styleBox}></div>
             <div className="item-title" onClick={props.click} style={props.styleTitle}>{props.title}</div>
-            <div onClick={props.xClick} className="x">X</div>
+            <div onClick={() => props.xClick(props.title, props.id)} className="x">X</div>
         </div>
     )
 }
