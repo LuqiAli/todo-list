@@ -1,16 +1,22 @@
 import React from "react";
 
-export default function Dropdown() {
-    return (
-        <div className="drop-container">
-          <div className="dropDown">
-            <select className="item-select">
-              <option value="All">All items</option>
-              <option value="Add">All items</option>
-            </select>
-            <span className="custom-arrow"></span>
-            <span className="border"></span>
-          </div>
+export default function Dropdown(props) {
+  
+  function changeValue(e) {
+    let groupEl = props.groupsArr.find(t => t.groupId === e.target.value)
+    // console.log(groupEl)
+    props.onChange(groupEl)
+  }
+  
+  return (
+      <div className="drop-container">
+        <div className="dropDown">
+          <select id="main-dropdown" className="item-select" onChange={(e) => changeValue(e)}>
+            {/* <option value="All">All items</option> */}
+            {props.groups}
+          </select>
+          <span className="custom-arrow"></span>
         </div>
+      </div>
     )
 }

@@ -94,7 +94,7 @@ code {
     monospace;
 }
 
-input {
+.input {
   width: 100%;
   height: 5vh;
   border: 2px solid #271c19;
@@ -126,6 +126,7 @@ input {
   background-color: var(--grey-100);
   border: 2px solid #271c19;
   border-radius: 10px;
+  min-width: 20px;
   height: 3vh;
   width: 3.5vh;
   margin: 0 10px;
@@ -195,6 +196,14 @@ input {
   font-size: 7vmin;
 }
 
+.navbar-img {
+  height: 9vh;
+  border: 2px solid var(--primary-500);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: 1vw;
+}
+
 select {
   text-indent: 10px;
   width: 100%;
@@ -207,10 +216,14 @@ select {
   
 }
 
+.drop-container {
+  width: 30%;
+}
+
 .dropDown {
   min-width: 150px;
   height: 5vh;
-  width: 15vw;
+  width: 100%;
   margin-bottom: 20px;
   display: inline-block;
   position: relative;
@@ -228,6 +241,35 @@ select {
   width: 5vh;
   pointer-events: none;
   cursor: pointer;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+
+  --size: .35em;
+  
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.custom-arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid rgba(255, 255, 255, 0.5);
+  top: 35%;
+}
+
+.custom-arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid rgba(255, 255, 255, 0.5);
+  top: 65%;
 }
 
 .popup {
@@ -257,8 +299,6 @@ select {
   font-family: 'Concert One', cursive;
   color: var(--grey-700);
   transition: all 0.2s linear;
-  /* border: 2px solid var(--grey-700);
-  border-radius: 10px; */
   height: 5vmin;
   width: 5vmin;
   text-align: center;
@@ -289,7 +329,6 @@ select {
   display: flex;
   justify-content: center;
   align-content: center;
-  /* background-color: red; */
   height: 9vmin;
   width: 100%;
 }
@@ -314,18 +353,20 @@ select {
 
 .hero { 
   display: flex;
+  margin-bottom: 20px;
+  columns: 1fr, 1fr, 1fr;
 }
 
 .archive-btn {
   font-size: 2vmin;
   display: flex;
   align-items: center;
-  margin: 0 2vmin;
+  margin: 0 30px;
   border: 2px solid #271c19;
   border-radius: 10px;
   min-width: 150px;
   height: 5vh;
-  width: 15vw;
+  width: 15%;
   background-color: var(--grey-200);
 }
 
@@ -336,5 +377,244 @@ select {
   height: 3.5vh;
   width: 3.5vh;
   margin: 0 10px;
+  cursor: pointer;
+}
+
+.item-drop {
+  top: 10px;
+  right: 7vmin;
+
+  min-width: 150px;
+  height: 3vh;
+  width: 15vw;
+  margin-bottom: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.item-arrow {
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--primary-500);
+  display: block;
+  height: 100%;
+  width: 3vh;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.item-arrow::before,
+.item-arrow::after {
+
+  --size: .2em;
+  
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.item-arrow::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid rgba(255, 255, 255, 0.9);
+  top: 30%;
+}
+
+.item-arrow::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid rgba(255, 255, 255, 0.9);
+  top: 60%;
+}
+
+.new-group-container {
+  margin-left: auto;
+  margin-right: 1vw;
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  height: 5vh;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vmax;
+  cursor: pointer;
+  background-color: var(--primary-500);
+  transition: all 0.2s linear;
+}
+
+.new-group-container > p {
+  margin: 0 20px;
+  color: var(--grey-50);
+}
+
+.new-group-container:hover {
+  background-color: var(--primary-700);
+}
+
+.bold {
+  color: var(--grey-50);
+  font-size: 2vmax;
+}
+
+.back-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba( 0, 0, 0, 0.75);
+}
+
+.groupName-enter {
+  width: 100%;
+  font-size: 4vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1vw;
+}
+
+.group-field {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup-group-title {
+  font-size: 3.7vmin;
+  padding: 0;
+  max-width: 84%;
+  margin: 3vh;
+  margin-bottom: 1vh;
+}
+
+.file-upload {
+  display: flex;
+  width: 100%;
+  height: 5vh;
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  background-color: var(--grey-200);
+
+}
+
+.groupImg-enter {
+  width: 100%;
+  font-size: 4vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1vw;
+}
+
+.groupImg-enter > form {
+   width: 50%;
+}
+
+.img-upload {
+  display: flex;
+  height: 5vh;
+  align-items: center;
+  column-gap: .5vw;
+  width: 50%;
+}
+
+.img-upload > p {
+  font-size: 1vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--grey-500);
+  max-width: 250px;
+}
+
+.img-upload > button {
+  height: 100%;
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  background-color: var(--primary-500);
+  color: var(--grey-50);
+  font-size: 1vw;
+  transition: all .2s linear;
+  cursor: pointer;
+  width: 100%;
+  margin-right: 1vw;
+
+}
+
+.img-upload > button:hover {
+  background-color: var(--primary-700);
+}
+
+.group-pop {
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--grey-400);
+  width: 35vw;
+  height: 45%;
+  text-align: center;
+  font-size: 2.5vw;
+  padding: 0;
+  font-weight: bolder;
+}
+
+.submit-group {
+  margin-top: 2vh;
+  height: 5vh;
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  width: 85%;
+  transition: all 0.2s linear;
+  background-color: var(--primary-500);
+  color: var(--grey-50);
+  font-size: 60%;
+}
+
+.submit-group:hover {
+  background-color: var(--primary-700);
+}
+
+.name-form {
+  width: 50%;
+}
+
+.delete-group-btn {
+  border: 2px solid #271c19;
+  border-radius: 10px;
+  height: 5vh;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vmax;
+  cursor: pointer;
+  background-color: var(--red-500);
+  transition: all 0.2s linear;
+}
+
+.delete-group-btn:hover {
+  background-color: var(--red-600);
+}
+
+.delete-group-btn > p {
+  margin: 0 20px;
+  color: var(--grey-50);
+}
+
+.dropSelect, .item-select {
   cursor: pointer;
 }
