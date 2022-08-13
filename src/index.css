@@ -618,3 +618,17 @@ select {
 .dropSelect, .item-select {
   cursor: pointer;
 }
+
+.buttons-group {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-btn {
+  height: 8vh;
+  width: 75%;
+}

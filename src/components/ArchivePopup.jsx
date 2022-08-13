@@ -4,7 +4,7 @@ import React from "react";
 export default function ArchivePopup(props) {
     
     return (
-        <div className="archive-shadow">
+        <div className="back-shadow">
             <div className="popup">
                 <div className="popup-header">
                     <div className="popup-title">Are you sure you want to delete: {props.text}?</div>
