@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CreateGroup(props) {
 
-    const [buttonTitle, setButtonTitle] = React.useState("Choose Image")
+    const [buttonTitle, setButtonTitle] = React.useState("No image chosen")
     const [newGroupName, setNewGroupName] = React.useState("")
     const [newGroupIcon, setNewGroupIcon] = React.useState("")
     
@@ -29,7 +29,8 @@ export default function CreateGroup(props) {
         
     }
     
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault()
         if (newGroupIcon && newGroupName ) {
             props.handleSubmit({type: "add-group", payload: {name: newGroupName, icon: newGroupIcon}})
             setNewGroupIcon("")
@@ -45,29 +46,27 @@ export default function CreateGroup(props) {
                     <div className="popup-group-title">Create Group</div>
                     <p onClick={props.handleCloseWindow} className="x-btn">X</p>
                 </div>
-                <div className="group-field">
+                <form className="group-field" onSubmit={(e) => handleSubmit(e)}>
                     <div className="groupName-enter">
                         <p>Group name:</p>
-                        <form className="name-form" onSubmit={e => {
-                                e.preventDefault()
-                            }}>
+                        <div className="name-form">
                             <input className="input" value={newGroupName} onChange={e => setNewGroupName(e.target.value)}/>
-                        </form>
+                        </div>
                         
                     </div>
                     <div className="groupImg-enter">
                         <p>Group icon:</p>
-                        <form className="img-upload" onSubmit={e => {
-                                e.preventDefault()
-                            }}>
+                        <div className="img-upload">
                             <input className="file-upload" type="file" id="img-file" style={{display: "none"}} accept="image/png, image/jpg, img/jpeg" onChange={imageUploaded}/>
-                            <button id="imgBtn" onClick={uploadFiles}>{buttonTitle}</button>
-                            {/* <p>{buttonTitle}</p> */}
-                        </form>
+                            <div className="upload-img-container">
+                                <button id="img-upload" onClick={uploadFiles}>Choose image</button>
+                                <p>{buttonTitle}</p>
+                            </div>
+                        </div>
                     </div>
-                    <button className="submit-group" onClick={handleSubmit}>Submit</button>
+                    <button className="submit-group" type="submit">Submit</button>
                     {/* <img id="img-test" className="img-test" src={""}/> */}
-                </div>
+                </form>
             </div>
         </div>
     )
