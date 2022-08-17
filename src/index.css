@@ -559,10 +559,13 @@ select {
   display: flex;
   border-radius: 10px;
   align-items: center;
+  overflow: hidden;
 }
 
 .tab-container {
   height: 100%;
+  max-width: 100%;
+  min-width: 1%;
   cursor: pointer;
   padding-left: .5vw;
   display: flex;
@@ -596,8 +599,9 @@ select {
 }
 
 .tab-name {
+  padding-right: 1%;
   font-size: 1.5vw;
-  width: 7vw;
+  width: 100%;
   overflow: hidden;
   /* word-wrap: break-word; */
   text-overflow: ellipsis;
@@ -621,8 +625,8 @@ select {
   border-radius: 10px;
   font-size: 2vw;
   color: var(--primary-700);
-  margin-left: .5vw;
-  margin-right: 1vw;
+  /* margin-left: .5vw; */
+  margin-right: .5vw;
   transition: all .25s linear;
   cursor: pointer;
 }
